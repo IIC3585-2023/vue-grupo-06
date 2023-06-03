@@ -1,26 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <pokemonTeamCard 
+    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png" 
+    title="Pokecarta"
+    description="Descripcion"  
+  />
+  <pokemonTeamCard 
+    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png" 
+    title="Pokecarta"
+    description="Descripcion"  
+  />
+  <pokemonTeamCard 
+    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png" 
+    title="Pokecarta"
+    description="Descripcion"  
+  />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import pokemonTeamCard from './components/pokemonTeamCard.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    pokemonTeamCard
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
