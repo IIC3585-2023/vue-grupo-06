@@ -1,28 +1,31 @@
 <template>
-  <pokemonTeamCard 
-    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png" 
+  <pokemonTeamCard
+    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png"
     title="Pokecarta"
-    description="Descripcion"  
+    description="Descripcion"
   />
-  <pokemonTeamCard 
-    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png" 
+  <pokemonTeamCard
+    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png"
     title="Pokecarta"
-    description="Descripcion"  
+    description="Descripcion"
   />
-  <pokemonTeamCard 
-    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png" 
+  <pokemonTeamCard
+    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png"
     title="Pokecarta"
-    description="Descripcion"  
+    description="Descripcion"
   />
+  <div><SearchComponent /></div>
 </template>
 
 <script>
-import pokemonTeamCard from './components/pokemonTeamCard.vue'
+import pokemonTeamCard from "./components/pokemonTeamCard.vue";
+import SearchComponent from "./components/SearchComponent.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    pokemonTeamCard
-  }
-}
+    pokemonTeamCard,
+    SearchComponent,
+  },
+};
 </script>
