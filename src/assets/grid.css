@@ -1,0 +1,22 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(
+    5,
+    1fr
+  ); /* This will create a grid with 3 columns */
+  gap: 10px; /* This is the space between grid items */
+}
+
+.grid-item {
+  background-color: #ddd; /* Just a background color for visibility */
+  padding: 20px; /* Some inner padding */
+  text-align: center; /* Center the text */
+}
+
+.types {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  width: 50%;
+  margin: 20px;
+}
