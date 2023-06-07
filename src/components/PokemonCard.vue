@@ -1,5 +1,5 @@
 <template>
-  <div class="poke-card">
+  <div @click="openModal(id)" class="poke-card">
     <div class="image-container">
       <img :src=imageUrl />
     </div>
@@ -16,6 +16,10 @@
 export default {
   name: 'PokemonCard',
   props: {
+    id: {
+      type: String,
+      required: true
+    },
     imageUrl: {
       type: String,
       required: true
@@ -28,6 +32,11 @@ export default {
       type: String,
       required: false
     }
-  }
+  },
+  methods: {
+    openModal(id) {
+      this.$emit('open-modal', id);
+    },
+  },
 };
 </script>
