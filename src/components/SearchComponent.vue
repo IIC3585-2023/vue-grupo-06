@@ -82,7 +82,7 @@ export default {
         return (
           item.name.toLowerCase().includes(this.search.toLowerCase()) &&
           (!this.selectedTypes.length ||
-            item.types.some((type) => this.selectedTypes.includes(type)))
+            this.selectedTypes.every((type) => item.types.includes(type)))
         );
       });
     },

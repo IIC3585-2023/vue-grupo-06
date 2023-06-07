@@ -1,55 +1,49 @@
 <template>
-  <TrainerTeam/>
-  <PokemonCard
-    :id = "3" 
-    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png" 
-    title="Pokecarta"
-    description="Descripcion"
-    @open-modal="toggleModal"  
-  />
-  <PokemonCard
-    :id = "5" 
-    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png" 
-    title="Pokecarta"
-    description="Descripcion"  
-    @open-modal="toggleModal"
-  />
+  <TrainerTeam @open-modal="editPokemonCard" />
   <AddModal
-    @close="toggleModal" 
+    @close="toggleModal"
     :modalActive="modalActive"
-    :pokemonId="selectedPokemonId"  
+    :pokemonId="selectedPokemonId"
+    :inTeam ="inTeam"
+    :index = "currentIndex"
   />
   <SearchComponent @open-modal="toggleModal" />
 </template>
 
 <script>
 import TrainerTeam from './components/TrainerTeam.vue'
-import SearchComponent from "./components/SearchComponent.vue"
-import PokemonCard from './components/PokemonCard.vue'
+import SearchComponent from './components/SearchComponent.vue'
 import AddModal from './components/AddModal.vue'
-import {ref} from 'vue'
 
 export default {
   name: "App",
   components: {
     TrainerTeam,
     SearchComponent,
-    PokemonCard,
     AddModal
   },
   data() {
-      return {
-        items: [],
-        selectedPokemonId: null
-      }
-    },
+    return {
+      items: [],
+      selectedPokemonId: null,
+      modalActive: false,
+      inTeam: false,
+      currentIndex: 0,
+    }
+  },
   methods: {
+    editPokemonCard(id, index) {
+      this.toggleModal(id);
+      this.inTeam = true;
+      this.currentIndex = index;
+    },
     toggleModal(id) {
-      this.selectedPokemonId = id; 
+      this.inTeam = false;
+      this.selectedPokemonId = id;
       this.modalActive = !this.modalActive;
     },
     fetchItems() {
-         fetch(`https://pokeapi.co/api/v2/item?limit=2050`)
+      fetch(`https://pokeapi.co/api/v2/item?limit=2050`)
         .then(response => response.json())
         .then(data => {
           this.items = data.results;
@@ -58,11 +52,6 @@ export default {
           console.error('Error fetching data:', error);
         });
       }
-  },
-  setup() {
-    const modalActive = ref(false);
-
-    return { modalActive }
   },
   mounted() {
     this.fetchItems();
