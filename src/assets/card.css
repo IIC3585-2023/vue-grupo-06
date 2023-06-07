@@ -115,9 +115,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-height: 55px;
 }
 
-
+select {
+  max-height: 17.33px;
+}
 .modal .buttons {
   display: flex;
   flex-direction: column;
@@ -156,4 +159,8 @@
   width: fit-content;
   padding: 10px 20px;
   border-radius: 5px;
+}
+
+.ability {
+  display: flex;
 }
