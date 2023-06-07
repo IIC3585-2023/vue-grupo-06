@@ -9,15 +9,15 @@
 /* ImageCard.css */
 
 .poke-card {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    overflow: hidden;
-    margin-bottom: 10px;
-    height: 100px;
-    width: 100px;
-  }
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  height: 100px;
+  width: 100px;
+}
 
 .poke-card img {
   width: 100%;
@@ -26,7 +26,7 @@
   .image-container {
     flex: 1;
   } */
-  
+
 .card-image {
   width: 100%;
   height: 100%;
@@ -62,10 +62,9 @@
   width: 400px;
   padding: 20px;
   border-radius: 4px;
-  box-shadow: -12px 10px 22px -2px rgba(0,0,0,0.43);
+  box-shadow: -12px 10px 22px -2px rgba(0, 0, 0, 0.43);
   display: flex;
   flex-direction: column;
-  
 }
 
 .modal button {
@@ -94,7 +93,6 @@
 
 .modal img {
   height: 230px;
-
 }
 
 .modal h1 {
@@ -117,24 +115,56 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
 }
 
-
 .modal .buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 5%;
+}
+
+.selects {
   display: flex;
   flex-direction: column;
 }
 
-.selects {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+.ability {
+  grid-area: 1 / 1 / 2 / 3;
+}
+.move1 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.move2 {
+  grid-area: 3 / 1 / 4 / 2;
+}
+.move3 {
+  grid-area: 3 / 2 / 4 / 3;
+}
+.move4 {
+  grid-area: 2 / 2 / 3 / 3;
 }
 
-.ability { grid-area: 1 / 1 / 2 / 3; }
-.move1 { grid-area: 2 / 1 / 3 / 2; }
-.move2 { grid-area: 3 / 1 / 4 / 2; }
-.move3 { grid-area: 3 / 2 / 4 / 3; }
-.move4 { grid-area: 2 / 2 / 3 / 3; }
+.ability-select {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/*close button*/
+.header button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #000;
+}
