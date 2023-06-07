@@ -14,7 +14,6 @@
 import TrainerTeam from './components/TrainerTeam.vue'
 import SearchComponent from './components/SearchComponent.vue'
 import AddModal from './components/AddModal.vue'
-import { ref } from "vue";
 
 export default {
   name: "App",
@@ -53,11 +52,6 @@ export default {
           console.error("Error fetching data:", error);
         });
     },
-  },
-  setup() {
-    const modalActive = ref(false);
-
-    return { modalActive };
   },
   mounted() {
     this.fetchItems();
