@@ -2,9 +2,9 @@
   <div class="search-component">
     <input v-model="search" placeholder="Search by name" />
     <div class="types">
-      <div v-for="type in types" :key="type">
-        <input type="checkbox" :value="type" v-model="selectedTypes" />
-        {{ type }}
+      <div v-for="pokemonType in types" :key="pokemonType">
+        <input type="checkbox" :value="pokemonType" v-model="selectedTypes" />
+        {{ pokemonType }}
       </div>
     </div>
     <div class="grid-container">
@@ -53,7 +53,7 @@ export default {
   },
   async created() {
     const response = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon?limit=2000"
+      "https://pokeapi.co/api/v2/pokemon?limit=1010"
     );
     const listWithDetails = await Promise.all(
       response.data.results.map(async (item) => {
