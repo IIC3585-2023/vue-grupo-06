@@ -58,13 +58,15 @@
 }
 
 .modal {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.274);
+  background-image: url("pokeball.png");
   width: 400px;
   padding: 20px;
-  border-radius: 4px;
-  box-shadow: -12px 10px 22px -2px rgba(0,0,0,0.43);
+  border-radius: 40px;
+  /* box-shadow: -12px 10px 22px -2px rgba(0,0,0,0.43); */
   display: flex;
   flex-direction: column;
+  font-weight: 600;
   
 }
 
@@ -95,10 +97,6 @@
 .modal img {
   height: 230px;
 
-}
-
-.modal h1 {
-  color: black;
 }
 
 .modal .image-stats {
@@ -138,3 +136,24 @@
 .move2 { grid-area: 3 / 1 / 4 / 2; }
 .move3 { grid-area: 3 / 2 / 4 / 3; }
 .move4 { grid-area: 2 / 2 / 3 / 3; }
+
+.modal input {
+  max-width: 30px;
+}
+
+.ev { 
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+
+.evs { 
+  min-width: 100px;
+}
+
+.modal h1 {
+  background-color: rgba(255, 255, 255, 0.687);
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
