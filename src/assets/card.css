@@ -11,8 +11,8 @@
     width: 100px;
   }
 
-.poke-card image {
-  height: 100%;
+.poke-card img {
+  width: 100%;
 }
 /*   
   .image-container {
