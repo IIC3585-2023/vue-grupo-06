@@ -27,7 +27,7 @@
       </div>
       <div class="fields-buttons">
         <div class="selects">
-          <div>ability: 
+          <div>Ability: 
             <select v-model="selectedAbility">
               <option v-for="(value, key) in abilities" :key="key" :value="value">
                 {{ value.ability.name }}
