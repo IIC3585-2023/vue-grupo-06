@@ -1,15 +1,30 @@
 <template>
   <div class="search-component">
-    <input v-model="search" placeholder="Search by name" />
+    <input v-model="search" placeholder="Search by name" class="searchbox" />
     <div class="types">
-      <div v-for="pokemonType in types" :key="pokemonType">
-        <input type="checkbox" :value="pokemonType" v-model="selectedTypes" />
-        {{ pokemonType }}
+      <div v-for="type in types" :key="type" class="checkbox-container">
+        <input type="checkbox" :value="type" v-model="selectedTypes" />
+        <span
+          class="pokeball"
+          v-if="selectedTypes.includes(type) && isChecked(type)"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/1200px-Pok%C3%A9_Ball_icon.svg.png"
+            alt="Pokeball"
+            @click="uncheck(type)"
+          />
+        </span>
+        {{ type }}
       </div>
     </div>
     <div class="grid-container">
       <div class="grid-item" v-for="item in filteredList" :key="item.id">
-        <PokemonInGrid :imageUrl="item.imageUrl" :name="item.name" :id="item.id" @open-modal="openModal" />
+        <PokemonInGrid
+          :imageUrl="item.imageUrl"
+          :name="item.name"
+          :id="item.id"
+          @open-modal="openModal"
+        />
       </div>
     </div>
   </div>
@@ -68,15 +83,21 @@ export default {
     );
     this.list = listWithDetails;
   },
-   methods: {
+  methods: {
     openModal(id) {
-      this.$emit('open-modal', id);
+      this.$emit("open-modal", id);
+    },
+    uncheck(type) {
+      const index = this.selectedTypes.indexOf(type);
+      if (index !== -1) {
+        this.selectedTypes.splice(index, 1);
+      }
     },
   },
   computed: {
     filteredList() {
-      if (!this.search && !this.selectedTypes.length){
-        return []
+      if (!this.search && !this.selectedTypes.length) {
+        return [];
       }
       return this.list.filter((item) => {
         return (
@@ -85,6 +106,9 @@ export default {
             this.selectedTypes.every((type) => item.types.includes(type)))
         );
       });
+    },
+    isChecked() {
+      return (type) => this.selectedTypes.includes(type);
     },
   },
 };
