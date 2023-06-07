@@ -6,11 +6,6 @@
 			:description="pokemon.description"
 		/>
   </div>
-	<PokemonCard 
-    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png" 
-    title="Pokecarta"
-    description="Descripcion"
-  />
 </template>
 
 <script>

@@ -1,14 +1,13 @@
 <template>
   <TrainerTeam/>
-  <SearchComponent />
-  <PokemonTeamCard
+  <PokemonCard
     :id = "3" 
     imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png" 
     title="Pokecarta"
     description="Descripcion"
     @open-modal="toggleModal"  
   />
-  <PokemonTeamCard
+  <PokemonCard
     :id = "5" 
     imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png" 
     title="Pokecarta"
@@ -20,12 +19,13 @@
     :modalActive="modalActive"
     :pokemonId="selectedPokemonId"  
   />
+  <SearchComponent />
 </template>
 
 <script>
 import TrainerTeam from './components/TrainerTeam.vue'
 import SearchComponent from "./components/SearchComponent.vue"
-import PokemonTeamCard from './components/PokemonTeamCard.vue'
+import PokemonCard from './components/PokemonCard.vue'
 import AddModal from './components/AddModal.vue'
 import {ref} from 'vue'
 
@@ -34,7 +34,7 @@ export default {
   components: {
     TrainerTeam,
     SearchComponent,
-    PokemonTeamCard,
+    PokemonCard,
     AddModal
   },
   data() {
