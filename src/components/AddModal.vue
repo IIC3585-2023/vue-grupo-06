@@ -72,7 +72,7 @@ export default {
             this.name = data.forms[0].name;
             this.abilities = data.abilities;
             this.moves = data.moves;
-            this.imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + id + '.png'
+            this.imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
           })
           .catch(error => {
             console.error('Error fetching data:', error);
