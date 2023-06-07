@@ -14,13 +14,14 @@
 import TrainerTeam from './components/TrainerTeam.vue'
 import SearchComponent from './components/SearchComponent.vue'
 import AddModal from './components/AddModal.vue'
+import { ref } from "vue";
 
 export default {
   name: "App",
   components: {
     TrainerTeam,
     SearchComponent,
-    AddModal
+    AddModal,
   },
   data() {
     return {
@@ -44,17 +45,22 @@ export default {
     },
     fetchItems() {
       fetch(`https://pokeapi.co/api/v2/item?limit=2050`)
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
           this.items = data.results;
         })
-        .catch(error => {
-          console.error('Error fetching data:', error);
+        .catch((error) => {
+          console.error("Error fetching data:", error);
         });
-      }
+    },
+  },
+  setup() {
+    const modalActive = ref(false);
+
+    return { modalActive };
   },
   mounted() {
     this.fetchItems();
-  }
-}
+  },
+};
 </script>
