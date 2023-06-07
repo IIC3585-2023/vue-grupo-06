@@ -1,41 +1,31 @@
 <template>
-  <div @click="openModal(id)" class="poke-card">
+  <div @click="openModal(pokemonInfo.id)" class="poke-card">
     <div class="image-container">
-      <img :src=imageUrl />
-    </div>
-    <div class="card-content">
-      <div class="card-text">
-        <h3>{{ title }}</h3>
-        <p>{{ description }}</p>
-      </div>
+      <img :src=pokemonInfo.imageUrl />
     </div>
   </div>
 </template>
 
 <script>
+import { useChosenTeamStore } from '@/stores/chosenTeam'
+
 export default {
   name: 'PokemonCard',
   props: {
-    id: {
-      type: String,
+    pokemonInfo: {
+      type: Object,
       required: true
-    },
-    imageUrl: {
-      type: String,
-      required: true
-    },
-    title: {
-      type: String,
-      required: false
-    },
-    description: {
-      type: String,
-      required: false
+    }
+  },
+  data () {
+    return {
+      chosenTeamStore: useChosenTeamStore()
     }
   },
   methods: {
     openModal(id) {
-      this.$emit('open-modal', id);
+      const index = this.chosenTeamStore.getPokemonIndex(this.pokemonInfo)
+      this.$emit('open-modal', id, index);
     },
   },
 };

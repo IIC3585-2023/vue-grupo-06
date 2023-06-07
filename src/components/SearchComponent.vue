@@ -68,7 +68,7 @@ export default {
   },
   async created() {
     const response = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon?limit=2000"
+      "https://pokeapi.co/api/v2/pokemon?limit=1010"
     );
     const listWithDetails = await Promise.all(
       response.data.results.map(async (item) => {
@@ -103,7 +103,7 @@ export default {
         return (
           item.name.toLowerCase().includes(this.search.toLowerCase()) &&
           (!this.selectedTypes.length ||
-            item.types.some((type) => this.selectedTypes.includes(type)))
+            this.selectedTypes.every((type) => item.types.includes(type)))
         );
       });
     },
