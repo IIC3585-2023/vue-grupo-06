@@ -4,13 +4,14 @@
     @close="toggleModal"
     :modalActive="modalActive"
     :pokemonId="selectedPokemonId"
-    :inTeam ="inTeam"
-    :index = "currentIndex"
+    :inTeam="inTeam"
+    :index="currentIndex"
   />
   <SearchComponent @open-modal="toggleModal" />
 </template>
 
 <script>
+
 import TrainerTeam from './components/TrainerTeam.vue'
 import SearchComponent from './components/SearchComponent.vue'
 import AddModal from './components/AddModal.vue'
@@ -29,7 +30,7 @@ export default {
       modalActive: false,
       inTeam: false,
       currentIndex: 0,
-    }
+    };
   },
   methods: {
     editPokemonCard(id, index) {
@@ -52,6 +53,13 @@ export default {
           console.error("Error fetching data:", error);
         });
     },
+  },
+
+  setup() {
+    const modalActive = ref(false);
+
+    // eslint-disable-next-line
+    return { modalActive };
   },
   mounted() {
     this.fetchItems();
