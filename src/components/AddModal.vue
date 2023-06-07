@@ -6,7 +6,27 @@
         <button @click="close">X</button>
       </div>
       <div class="image-stats">
-        <img v-bind:src="imageUrl" />
+        <img v-bind:src="imageUrl">
+        <div class="evs">
+          <div class="ev">
+            ps: <input type="number" v-model.number="evs.ps" @input="limitSum('ps', $event.target.value)" @click="selectValue($event.target)" />
+          </div>
+          <div class="ev">
+            atk: <input type="number" v-model.number="evs.atk" @input="limitSum('atk', $event.target.value)" @click="selectValue($event.target)" />
+          </div>
+          <div class="ev">
+            def: <input type="number" v-model.number="evs.def" @input="limitSum('def', $event.target.value)" @click="selectValue($event.target)" />
+          </div>
+          <div class="ev">
+            spatk: <input type="number" v-model.number="evs.spatk" @input="limitSum('spatk', $event.target.value)" @click="selectValue($event.target)" />
+          </div>
+          <div class="ev">
+            spdef: <input type="number" v-model.number="evs.spdef" @input="limitSum('spdef', $event.target.value)" @click="selectValue($event.target)" />
+          </div>
+          <div class="ev">
+            spe: <input type="number" v-model.number="evs.spe" @input="limitSum('spe', $event.target.value)" @click="selectValue($event.target)" />
+          </div>
+        </div>      
       </div>
       <div class="fields-buttons">
         <div class="selects">
@@ -93,8 +113,20 @@ export default {
           console.error("Error fetching data:", error);
         });
     },
+    limitSum(attribute, value) {
+      this.evs[attribute] = parseInt(value) || 0;
+      const sum = Object.values(this.evs).reduce((acc, cur) => acc + cur, 0);
+      const maxTotal = 510;
+      if (sum > maxTotal) {
+        const remainingSum = maxTotal - (sum - this.evs[attribute]);
+        this.evs[attribute] = remainingSum;
+      } if (this.evs[attribute] > 255) { this.evs[attribute] = 255; }
+    },
+    selectValue(target) {
+      target.select();
+    },
     close() {
-      this.$emit("close");
+      this.$emit('close');
     },
     addPokemon() {
       const pokemonData = {
@@ -106,11 +138,11 @@ export default {
         evs: this.evs,
       };
       this.chosenTeamStore.addPokemonToTeam(pokemonData);
-      this.$emit("close");
+      this.$emit('close');
     },
     removePokemon() {
       this.chosenTeamStore.removePokemonFromTeam(this.index);
-      this.$emit("close");
+      this.$emit('close');
     },
     updatePokemon() {
       const pokemonData = {
@@ -122,7 +154,7 @@ export default {
         evs: this.evs,
       };
       this.chosenTeamStore.updatePokemonInTeam(pokemonData);
-      this.$emit("close");
+      this.$emit('close');
     },
   },
 };

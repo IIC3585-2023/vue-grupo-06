@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import TrainerTeam from "./components/TrainerTeam.vue";
-import SearchComponent from "./components/SearchComponent.vue";
-import AddModal from "./components/AddModal.vue";
-import { ref } from "vue";
+
+import TrainerTeam from './components/TrainerTeam.vue'
+import SearchComponent from './components/SearchComponent.vue'
+import AddModal from './components/AddModal.vue'
 
 export default {
   name: "App",
@@ -54,6 +54,7 @@ export default {
         });
     },
   },
+
   setup() {
     const modalActive = ref(false);
 
