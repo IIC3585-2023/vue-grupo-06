@@ -1,28 +1,15 @@
 <template>
-  <pokemonTeamCard 
-    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png" 
-    title="Pokecarta"
-    description="Descripcion"  
-  />
-  <pokemonTeamCard 
-    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png" 
-    title="Pokecarta"
-    description="Descripcion"  
-  />
-  <pokemonTeamCard 
-    imageUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/756.png" 
-    title="Pokecarta"
-    description="Descripcion"  
-  />
+  <TrainerTeam/>
+  <!-- <PokemonList/> -->
 </template>
 
 <script>
-import pokemonTeamCard from './components/pokemonTeamCard.vue'
+import TrainerTeam from './components/TrainerTeam.vue'
 
 export default {
   name: 'App',
   components: {
-    pokemonTeamCard
+    TrainerTeam
   }
 }
 </script>

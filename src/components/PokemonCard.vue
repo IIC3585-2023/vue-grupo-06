@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'pokemonTeamCard',
+  name: 'PokemonCard',
   props: {
     imageUrl: {
       type: String,
