@@ -3,7 +3,9 @@
   flex-direction: column;
 }
 
-
+.search-component {
+  min-width: 1000px;
+}
 /* ImageCard.css */
 
 .poke-card {

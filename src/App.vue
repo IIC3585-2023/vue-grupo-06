@@ -19,7 +19,7 @@
     :modalActive="modalActive"
     :pokemonId="selectedPokemonId"  
   />
-  <SearchComponent />
+  <SearchComponent @open-modal="toggleModal" />
 </template>
 
 <script>

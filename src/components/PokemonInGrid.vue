@@ -1,5 +1,5 @@
 <template>
-  <div class="pokemon-in-grid">
+  <div class="pokemon-in-grid" @click="openModal(id)">
     <div class="pokemon-in-grid__image">
       <img :src="imageUrl" alt="pokemon" />
     </div>
@@ -18,6 +18,15 @@ export default {
     name: {
       type: String,
       required: true,
+    },
+    id: {
+      type: String,
+      required: true,
+    },
+  },
+  methods: {
+    openModal(id) {
+      this.$emit('open-modal', id);
     },
   },
 };

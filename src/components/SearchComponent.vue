@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="search-component">
     <input v-model="search" placeholder="Search by name" />
     <div class="types">
       <div v-for="type in types" :key="type">
@@ -9,7 +9,7 @@
     </div>
     <div class="grid-container">
       <div class="grid-item" v-for="item in filteredList" :key="item.id">
-        <PokemonInGrid :imageUrl="item.imageUrl" :name="item.name" />
+        <PokemonInGrid :imageUrl="item.imageUrl" :name="item.name" :id="item.id" @open-modal="openModal" />
       </div>
     </div>
   </div>
@@ -62,13 +62,22 @@ export default {
           ...item,
           imageUrl: details.data.sprites.front_default,
           types: details.data.types.map((type) => type.type.name),
+          id: details.data.id,
         };
       })
     );
     this.list = listWithDetails;
   },
+   methods: {
+    openModal(id) {
+      this.$emit('open-modal', id);
+    },
+  },
   computed: {
     filteredList() {
+      if (!this.search && !this.selectedTypes.length){
+        return []
+      }
       return this.list.filter((item) => {
         return (
           item.name.toLowerCase().includes(this.search.toLowerCase()) &&
